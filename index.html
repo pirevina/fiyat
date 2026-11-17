@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Güncel Temizlik — Fiyat Tarifesi Formu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF9F6; color: #0F172A; }
+        input::-webkit-outer-spin-button, input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+        input[type=number] { -moz-appearance: textfield; }
+    </style>
+</head>
+<body class="antialiased pb-16">
+
+    <!-- Üst Başlık -->
+    <header class="bg-slate-900 text-white py-6 px-4 shadow-md sticky top-0 z-30">
+        <div class="max-w-xl mx-auto flex items-center justify-between">
+            <div>
+                <span class="text-[11px] font-bold uppercase tracking-widest text-teal-400 block">Web Sitesi Kurulumu</span>
+                <h1 class="text-lg sm:text-xl font-extrabold tracking-tight">GÜNCEL TEMİZLİK — FİYAT TARİFESİ</h1>
+            </div>
+            <button type="button" onclick="fillExamples()" class="text-xs bg-white/10 hover:bg-white/20 text-teal-300 font-semibold px-3 py-2 rounded-xl transition">
+                Örnekleri Doldur
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-xl mx-auto px-4 pt-6">
+        <p class="text-xs sm:text-sm text-slate-600 mb-6 bg-teal-50 border border-teal-200/80 text-teal-900 p-4 rounded-2xl leading-relaxed">
+            <i class="fa-solid fa-circle-info text-teal-600 mr-1"></i>
+            Web sitenizdeki canlı fiyat hesaplama aracının kurulabilmesi için lütfen aşağıdaki kutucuklara güncel fiyatlarınızı yazıp en alttaki <b>"Fiyatları Gönder"</b> butonuna basınız.
+        </p>
+
+        <form id="tariffForm" onsubmit="submitTariff(event)" class="space-y-6">
+
+            <!-- BÖLÜM 1: Alan Büyüklüğü -->
+            <section class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm">
+                <div class="border-b border-slate-100 pb-3 mb-4">
+                    <h2 class="text-base font-extrabold text-slate-900">1. Alan Büyüklüğü</h2>
+                    <p class="text-xs text-slate-500">Standart Ev Temizliği İçin Başlangıç Fiyatları</p>
+                </div>
+
+                <div class="space-y-3.5">
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">1+1 Ev</label>
+                            <span class="text-[11px] text-slate-400">Örnek: 1.200 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <input type="number" id="price_1_1" inputmode="numeric" required placeholder="1200"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-4 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">2+1 Ev</label>
+                            <span class="text-[11px] text-slate-400">Örnek: 1.600 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <input type="number" id="price_2_1" inputmode="numeric" required placeholder="1600"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-4 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">3+1 Ev</label>
+                            <span class="text-[11px] text-slate-400">Örnek: 2.000 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <input type="number" id="price_3_1" inputmode="numeric" required placeholder="2000"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-4 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">4+1 Ev</label>
+                            <span class="text-[11px] text-slate-400">Örnek: 2.400 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <input type="number" id="price_4_1" inputmode="numeric" required placeholder="2400"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-4 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÖLÜM 2: Hizmet Türü Farkı -->
+            <section class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm">
+                <div class="border-b border-slate-100 pb-3 mb-4">
+                    <h2 class="text-base font-extrabold text-slate-900">2. Hizmet Türü Farkı</h2>
+                    <p class="text-xs text-slate-500">Standart Ev Fiyatının Üzerine Eklenecek Tutar</p>
+                </div>
+
+                <div class="space-y-3.5">
+                    <div class="flex items-center justify-between gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                        <span class="font-semibold text-xs sm:text-sm text-slate-700">Standart Ev Temizliği</span>
+                        <span class="text-xs font-bold text-teal-700 bg-teal-50 px-2.5 py-1 rounded-lg">Fark yok / Normal fiyat</span>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">Boş Ev / Taşınma Öncesi</label>
+                            <span class="text-[11px] text-slate-400">Örnek: +800 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">+</span>
+                            <input type="number" id="srv_bos_ev" inputmode="numeric" required placeholder="800"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">İnşaat & Tadilat Sonrası</label>
+                            <span class="text-[11px] text-slate-400">Örnek: +1.200 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">+</span>
+                            <input type="number" id="srv_insaat" inputmode="numeric" required placeholder="1200"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">Ofis & İş Yeri Temizliği</label>
+                            <span class="text-[11px] text-slate-400">Örnek: +300 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">+</span>
+                            <input type="number" id="srv_ofis" inputmode="numeric" required placeholder="300"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÖLÜM 3: Ek İstekler -->
+            <section class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm">
+                <div class="border-b border-slate-100 pb-3 mb-4">
+                    <h2 class="text-base font-extrabold text-slate-900">3. Ek İstekler</h2>
+                    <p class="text-xs text-slate-500">İsteğe Bağlı Seçenekler</p>
+                </div>
+
+                <div class="space-y-3.5">
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block leading-snug">Malzeme Dahil <span class="text-xs font-medium text-slate-500 block">(Deterjan/Ekipman firmadan)</span></label>
+                            <span class="text-[11px] text-slate-400">Örnek: +300 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">+</span>
+                            <input type="number" id="ext_malzeme" inputmode="numeric" required placeholder="300"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">Balkon & Cam Temizliği</label>
+                            <span class="text-[11px] text-slate-400">Örnek: +350 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">+</span>
+                            <input type="number" id="ext_balkon" inputmode="numeric" required placeholder="350"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">Dolap İçleri Temizliği</label>
+                            <span class="text-[11px] text-slate-400">Örnek: +350 TL</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">+</span>
+                            <input type="number" id="ext_dolap" inputmode="numeric" required placeholder="350"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-10 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3.5 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">TL</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÖLÜM 4: Düzenli Temizlik İndirim Oranları -->
+            <section class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm">
+                <div class="border-b border-slate-100 pb-3 mb-4">
+                    <h2 class="text-base font-extrabold text-slate-900">4. Düzenli Temizlik İndirim Oranları</h2>
+                    <p class="text-xs text-slate-500">Abone müşterilere uygulanacak yüzde indirimler</p>
+                </div>
+
+                <div class="space-y-3.5">
+                    <div class="flex items-center justify-between gap-3 bg-slate-50 p-3 rounded-xl border border-slate-200/60">
+                        <span class="font-semibold text-xs sm:text-sm text-slate-700">Tek Seferlik</span>
+                        <span class="text-xs font-bold text-slate-600 bg-slate-200/70 px-2.5 py-1 rounded-lg">İndirimsiz</span>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">2 Haftada Bir Temizlik</label>
+                            <span class="text-[11px] text-slate-400">Örnek: %10 İndirim</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">%</span>
+                            <input type="number" id="disc_2hafta" inputmode="numeric" required placeholder="10"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-16 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-slate-400">İndirim</span>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="w-1/2">
+                            <label class="font-bold text-sm text-slate-800 block">Haftalık Temizlik</label>
+                            <span class="text-[11px] text-slate-400">Örnek: %15 İndirim</span>
+                        </div>
+                        <div class="relative w-1/2">
+                            <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-sm font-extrabold text-teal-600">%</span>
+                            <input type="number" id="disc_haftalik" inputmode="numeric" required placeholder="15"
+                                   class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white pl-8 pr-16 py-3 text-base font-bold text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+                            <span class="absolute right-3 top-1/2 -translate-y-1/2 text-[11px] font-bold text-slate-400">İndirim</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Ek Not / Firma Adı -->
+            <section class="bg-white rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm">
+                <label class="block text-xs font-bold text-slate-700 mb-2">Firma Adınız veya Eklemek İstediğiniz Not (İsteğe Bağlı)</label>
+                <input type="text" id="client_note" placeholder="Örn: Pırıl Temizlik - WhatsApp: 05xx..."
+                       class="w-full rounded-xl border border-slate-300 bg-slate-50 focus:bg-white px-4 py-3 text-sm font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500">
+            </section>
+
+            <!-- Gönder Butonu -->
+            <button type="submit" id="submitBtn" class="w-full bg-teal-600 hover:bg-teal-700 active:scale-[0.99] text-white font-extrabold text-base py-4 rounded-2xl shadow-xl shadow-teal-600/25 transition flex items-center justify-center gap-2">
+                <i class="fa-solid fa-paper-plane"></i> Fiyatları Kaydet ve Gönder
+            </button>
+
+        </form>
+
+        <!-- Başarılı Gönderim Ekranı -->
+        <div id="successBox" class="hidden bg-white rounded-3xl p-8 border border-teal-200 text-center shadow-xl my-8">
+            <div class="w-16 h-16 rounded-full bg-teal-50 text-teal-600 flex items-center justify-center text-3xl mx-auto mb-4">
+                <i class="fa-solid fa-circle-check"></i>
+            </div>
+            <h3 class="text-xl font-extrabold text-slate-900 mb-2">Fiyat Listeniz İletildi!</h3>
+            <p class="text-sm text-slate-600 mb-6">Girdiğiniz güncel tarife bilgileri sistemimize başarıyla kaydedildi. Web siteniz bu fiyatlara göre hazırlanacaktır.</p>
+            <button onclick="location.reload()" class="text-xs font-bold text-teal-600 hover:underline">Fiyatları Tekrar Düzenle</button>
+        </div>
+    </main>
+
+    <script>
+        // BURAYA GOOGLE APPS SCRIPT WEB UYGULAMASI URL'NİZİ YAPIŞTIRIN
+        const SCRIPT_URL = "BURAYA_GOOGLE_APPS_SCRIPT_WEB_APP_URL_GELECEK";
+
+        // Görseldeki örnek fiyatları tek tıkla doldurma yardımcısı
+        function fillExamples() {
+            const examples = {
+                price_1_1: 1200, price_2_1: 1600, price_3_1: 2000, price_4_1: 2400,
+                srv_bos_ev: 800, srv_insaat: 1200, srv_ofis: 300,
+                ext_malzeme: 300, ext_balkon: 350, ext_dolap: 350,
+                disc_2hafta: 10, disc_haftalik: 15
+            };
+            Object.keys(examples).forEach(id => {
+                document.getElementById(id).value = examples[id];
+            });
+        }
+
+        async function submitTariff(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch animate-spin"></i> Gönderiliyor...';
+
+            const fields = [
+                'price_1_1', 'price_2_1', 'price_3_1', 'price_4_1',
+                'srv_bos_ev', 'srv_insaat', 'srv_ofis',
+                'ext_malzeme', 'ext_balkon', 'ext_dolap',
+                'disc_2hafta', 'disc_haftalik', 'client_note'
+            ];
+
+            const payload = {};
+            fields.forEach(id => {
+                const el = document.getElementById(id);
+                payload[id] = el.type === 'number' ? Number(el.value) : el.value;
+            });
+
+            try {
+                await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                    body: JSON.stringify(payload)
+                });
+
+                document.getElementById('tariffForm').classList.add('hidden');
+                document.getElementById('successBox').classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } catch (err) {
+                alert("Gönderim sırasında bir hata oluştu. Lütfen internet bağlantınızı kontrol edin.");
+                btn.disabled = false;
+                btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Fiyatları Kaydet ve Gönder';
+            }
+        }
+    </script>
+</body>
+</html>
